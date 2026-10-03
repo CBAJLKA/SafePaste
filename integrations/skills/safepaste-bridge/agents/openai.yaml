@@ -1,0 +1,7 @@
+interface:
+  display_name: "SafePaste Bridge"
+  short_description: "Обезличенная работа с данными через SafePaste"
+  default_prompt: "Используй $safepaste-bridge, чтобы разобраться с задачей на этой машине через мост SafePaste."
+
+policy:
+  allow_implicit_invocation: true

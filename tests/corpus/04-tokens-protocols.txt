@@ -1,0 +1,71 @@
+## Вымышленные токены, заголовки HTTP, файлы ключей и сетевые протоколы.
+
+# HTTP и OAuth
+Authorization: Bearer ⟦fake-bearer-0123456789abcdef0123456789⟧
+Proxy-Authorization: Basic ⟦dGVzdHVzZXI6dGVzdHBhc3M=⟧
+Authorization: Token ⟦fake-auth-token-0123456789⟧
+X-API-Key: ⟦fake-x-api-key-0123456789⟧
+X-Auth-Token: ⟦fake-x-auth-token-0123456789⟧
+Set-Cookie: ⟦session=abcdef0123456789; HttpOnly; Secure⟧
+Cookie: ⟦sid=0123456789abcdef; theme=light⟧
+oauth_token=⟦fake-oauth-token-0123456789⟧
+refresh_token=⟦fake-refresh-token-0123456789⟧
+id_token=⟦fake-id-token-0123456789⟧
+csrf_token=⟦fake-csrf-token-0123456789⟧
+
+# Подделки известных сервисных токенов
+GITHUB_TOKEN=⟦ghp_FakeToken0123456789abcdefghijABCDEFGHIJ⟧
+GITHUB_FINE_GRAINED_PAT=⟦github_pat_FakeToken0123456789abcdefghijABCDEFGHIJ⟧
+GITLAB_TOKEN=⟦glpat-FakeToken0123456789abcdefghijklmn⟧
+SLACK_BOT_TOKEN=⟦xoxb-FakeBotToken0123456789abcdefgh⟧
+SLACK_APP_TOKEN=⟦xapp-1-FakeAppToken0123456789abcdefgh⟧
+OPENAI_API_KEY=⟦sk-proj-FakeOpenAiKey0123456789abcdefghij⟧
+ANTHROPIC_API_KEY=⟦sk-ant-api03-FakeAnthropicKey0123456789abcdef⟧
+STRIPE_SECRET_KEY=⟦sk_test_FakeStripeSecret0123456789abcdefgh⟧
+STRIPE_WEBHOOK_SECRET=⟦whsec_FakeStripeWebhookSecret0123456789ab⟧
+SENDGRID_API_KEY=⟦SG.FakeSendgridToken012345.FakeSendgridSecret012345⟧
+DOCKER_TOKEN=⟦dckr_pat_FakeDockerToken0123456789abcdef⟧
+NPM_TOKEN=⟦npm_FakeNpmToken0123456789abcdefghijklmnopq⟧
+PYPI_TOKEN=⟦pypi-FakePyPiToken0123456789abcdefghijklmnopq⟧
+NUGET_API_KEY=⟦FakeNugetApiKey0123456789⟧
+HUGGINGFACE_TOKEN=⟦hf_FakeHuggingFaceToken0123456789abcdef⟧
+
+# JWT и Telegram
+⟦eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTYifQ.fakeSignature0123456789⟧
+Authorization: Bearer ⟦eyJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJ0ZXN0In0.fakeSignatureABCDEF12345⟧
+TELEGRAM_BOT_TOKEN=⟦123456789:AAFakeTelegramBotToken0123456789abcdef⟧
+DISCORD_BOT_TOKEN=⟦FakeDiscordBotToken0123456789abcdef⟧
+
+# SSH, PEM, PGP, WireGuard
+-----BEGIN RSA PRIVATE KEY-----
+⟦MIIEpAIBAAKCAQEAFAKE0123456789⟧
+-----END RSA PRIVATE KEY-----
+
+-----BEGIN OPENSSH PRIVATE KEY-----
+⟦b3BlbnNzaC1rZXktdjEAAAAAFAKE012345⟧
+-----END OPENSSH PRIVATE KEY-----
+
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+⟦lQOYBF0fakeprivatekeydata012345⟧
+-----END PGP PRIVATE KEY BLOCK-----
+
+PrivateKey = ⟦FakeWireGuardPrivateKeyBase64AAAAAAA=⟧
+PresharedKey = ⟦FakeWireGuardPskBase64BBBBBBBBBBB=⟧
+PublicKey = FakeWireGuardPublicKeyBase64CCCCCCC=
+
+# VPN, RADIUS, SNMP, IPsec
+VPN_PASSWORD=⟦FakeVpnPass!123⟧
+VPN_PSK=⟦FakePreSharedKey!123456⟧
+radius_secret=⟦FakeRadiusSecret0123456789⟧
+snmpv3_auth_password=⟦FakeSnmpAuth!123⟧
+snmpv3_priv_password=⟦FakeSnmpPriv#456⟧
+PSK="⟦Fake-IPSec-PSK-123456⟧"
+shared_secret=⟦FakeSharedSecret!2026⟧
+
+# Банковские тестовые номера и коды
+card_number=⟦4111111111111111⟧
+card: ⟦4111 1111 1111 1111⟧
+cvv=⟦123⟧
+cvv2=⟦987⟧
+pin=⟦482913⟧
+otp=⟦654321⟧

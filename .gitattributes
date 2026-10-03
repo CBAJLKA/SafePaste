@@ -1,0 +1,16 @@
+# Текст хранится в репозитории с LF, на Windows раскрывается по core.autocrlf.
+* text=auto
+
+# cmd.exe и Windows PowerShell 5.1 надёжнее читают файлы с CRLF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf
+*.vbs text eol=crlf
+
+*.cs text diff=csharp
+*.md text diff=markdown
+
+*.ico binary
+*.png binary
+*.zip binary
+*.exe binary

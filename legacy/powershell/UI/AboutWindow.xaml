@@ -1,0 +1,38 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="О SafePaste" Width="620" Height="560" MinWidth="520" MinHeight="430"
+        WindowStartupLocation="CenterOwner" Background="#000000" Foreground="#E5E7EB">
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="#0A0A0A" BorderBrush="#404040" BorderThickness="1" CornerRadius="8" Padding="18">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBlock Name="AboutText" TextWrapping="Wrap" FontSize="14" LineHeight="22" xml:space="preserve">SAFEPASTE · локальная проверка вставки
+
+Как работает
+1. Вы копируете текст в Clipboard.
+2. SafePaste проверяет его локально, без сети и телеметрии.
+3. Ctrl+Shift+V открывает проверку; красным отмечены фрагменты, которые будут скрыты.
+4. Можно отключить отдельную замену, выделить пропущенное значение вручную, запомнить идентификатор или добавить его в allowlist.
+5. Safe Paste создаёт обезличенный текст, вставляет его в предыдущее приложение и примерно через 800 мс очищает Clipboard.
+
+Защита данных
+Исходный Clipboard и история вставок не записываются на диск. База обученных идентификаторов хранится в database.dat, зашифрованном Windows DPAPI для текущей учётной записи и компьютера. Пароли, токены и приватные ключи не сохраняются в базе.
+
+Горячие клавиши
+Ctrl+Shift+V — быстрый режим для высоконадёжных совпадений.
+Ctrl+Alt+Shift+V — интерактивная проверка.
+
+Авторство
+Идея, требования и рабочий сценарий: {USER}.
+Реализация: {USER} совместно с Codex (OpenAI).
+
+Версия: 0.1</TextBlock>
+            </ScrollViewer>
+        </Border>
+        <Button Grid.Row="1" Name="CloseButton" Content="Закрыть" HorizontalAlignment="Right" MinWidth="110" Margin="0,14,0,0" Padding="12,6"
+                Background="#202020" Foreground="#F8FAFC" BorderBrush="#707070"/>
+    </Grid>
+</Window>

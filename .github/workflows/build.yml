@@ -1,0 +1,49 @@
+name: Сборка
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Сборка и проверки
+    runs-on: windows-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Сборка SafePaste.exe
+        shell: cmd
+        run: |
+          chcp 65001 >nul
+          call build.cmd
+
+      - name: Тесты
+        shell: cmd
+        run: |
+          chcp 65001 >nul
+          call build.cmd test
+
+      - name: Проверки интерфейса
+        shell: cmd
+        run: |
+          chcp 65001 >nul
+          call build.cmd uitest
+
+      - name: Снимки окон
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-preview
+          path: bin/ui-preview
+          if-no-files-found: ignore
+          retention-days: 7

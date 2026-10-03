@@ -1,0 +1,53 @@
+name: Распознавание
+description: SafePaste не скрыл то, что должен, или скрыл лишнее
+labels: [распознавание]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Пример должен быть вымышленным.** Сохраните вид значения, но замените сами символы:
+        `ghp_FakeToken0123...`, `10.0.0.5`, `srv-demo01.corp.example`, `Петров Пётр Петрович`.
+        Проверьте, что пример воспроизводится и после замены.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Что не так
+      options:
+        - Не скрыл то, что должен
+        - Скрыл лишнее
+        - Не тот тип или метка
+        - Скрыл только часть значения
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Пример текста
+      description: Несколько строк вокруг значения, контекст важен для правил.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Что ожидалось
+      placeholder: "`srv-demo01` должно стать [HOST_1], а слово `production` остаться"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Режим
+      options:
+        - Строгий
+        - Обычный
+        - Лёгкий
+  - type: dropdown
+    id: where
+    attributes:
+      label: Где
+      options:
+        - Быстрая вставка
+        - Окно проверки
+        - Картинка
+        - Мост для агентов

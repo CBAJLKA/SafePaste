@@ -1,0 +1,71 @@
+## Вымышленные пароли в командах, сценариях и соседнем контексте.
+
+# Команды с паролем в аргументе
+docker login registry.example.test -u deploy -p ⟦FakeDockerPass!123⟧
+podman login registry.example.test -u robot -p ⟦FakePodmanPass#2026⟧
+sqlcmd -S sql01.example.test -U sa -P ⟦FakeSqlcmd!123⟧
+mysql -u root -p⟦FakeMysqlCli#2026⟧
+mysqldump -u backup -p⟦FakeDumpPass!2026⟧ testdb
+psql postgresql://pguser:⟦FakePsqlUrl#2026⟧@db.example.test/app
+redis-cli -h cache.example.test -a ⟦FakeRedisCli!2026⟧
+ldapsearch -H ldap://dc.example.test -D cn=svc -w ⟦FakeLdapCli#2026⟧
+curl -u admin:⟦FakeCurlPass!2026⟧ https://example.test/api
+curl --proxy-user proxy:⟦FakeProxyCurl#2026⟧ https://example.test/
+wget --http-password=⟦FakeWgetPass!2026⟧ https://example.test/file
+keytool -storepass ⟦FakeStorePass#2026⟧ -list -keystore fake.jks
+openssl enc -aes-256-cbc -k ⟦FakeOpenSsl!2026⟧ -in input
+7z a -p⟦Fake7zipPass#2026⟧ archive.7z folder
+zip -P ⟦FakeZipPass!2026⟧ archive.zip file
+htpasswd -bc users.htpasswd admin ⟦FakeHtPass#2026⟧
+schtasks /Create /RU service /RP ⟦FakeTaskPass!2026⟧ /SC DAILY /TN Test
+net use \\fs01\share ⟦FakeNetUse#2026⟧ /user:CORP\user
+net user admin ⟦FakeNetUser!2026⟧ /add
+
+# Серверное оборудование
+username admin privilege 15 secret ⟦FakeCiscoSecret!2026⟧
+enable secret ⟦FakeEnableSecret#2026⟧
+snmp-server community ⟦FakeSnmpCommunity2026⟧ RO
+crypto isakmp key ⟦FakeIsakmpKey#2026⟧ address 192.0.2.1
+/user add name=routeradmin password="⟦FakeMikrotikPass!2026⟧"
+set psksecret ⟦FakeFortigatePsk#2026⟧
+local-user admin password cipher ⟦FakeHuaweiCipher2026⟧
+
+# Облачные CLI и CI
+az login --service-principal -u fake-client -p ⟦FakeAzureCli!2026⟧ --tenant fake-tenant
+export AWS_SECRET_ACCESS_KEY="⟦FakeAwsCliSecret/2026==⟧"
+export GITHUB_TOKEN="⟦ghp_FakeActionsToken0123456789abcdefABCDEF⟧"
+kubectl create secret generic app --from-literal=password=⟦FakeKubectlPass!2026⟧
+helm registry login registry.example.test --password ⟦FakeHelmPass#2026⟧
+sshpass -p ⟦FakeSshPass!2026⟧ ssh admin@host.example.test
+ansible-playbook play.yml -e ansible_password=⟦FakeAnsibleCli#2026⟧
+
+# Языки программирования
+$Password = "⟦FakePowerShellPass!2026⟧"
+$Token = "⟦FakePowerShellToken012345⟧"
+export PASSWORD="⟦FakeBashPass!2026⟧"
+export API_TOKEN="⟦FakeBashToken012345⟧"
+password = "⟦FakePythonPass!2026⟧"
+api_key = "⟦FakePythonApiKey012345⟧"
+const password = "⟦FakeJsPass!2026⟧";
+const token = "⟦FakeJsToken012345⟧";
+new NetworkCredential("testuser", "⟦FakeDotNetPass!2026⟧")
+smtp.login("alerts@example.test", "⟦FakeSmtpCode!2026⟧")
+
+# Почтовые и иные сервисы
+smtp_username=alerts@example.test
+smtp_password=⟦FakeSmtpPassword!2026⟧
+LDAP_BIND_PASSWORD=⟦FakeLdapBindPass#2026⟧
+RABBITMQ_PASSWORD=⟦FakeRabbitPass!2026⟧
+VSPHERE_PASSWORD=⟦FakeVSpherePass#2026⟧
+VEEAM_PASSWORD=⟦FakeVeeamPass!2026⟧
+PVEAPIToken=⟦FakeProxmoxApiToken012345⟧
+
+# Подписи рядом с секретом
+Пароль для админа: ⟦North-Wind!2026⟧
+Пароль от Wi-Fi: ⟦FakeWifiPass#2026⟧
+Credentials: admin / ⟦LabCreds!2026⟧
+login/password: tester / ⟦TestCreds#2026⟧
+Пароли:
+- ⟦North-01!⟧
+- ⟦South-02#⟧
+- ⟦West-03$⟧

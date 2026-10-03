@@ -1,0 +1,66 @@
+name: Выпуск
+
+# Тег vX.Y (или vX.Y-rc1) на main: сборка, проверки, архив с SHA256 и черновик выпуска.
+# Запуск вручную собирает тот же архив без выпуска, чтобы проверить упаковку.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Архив и черновик выпуска
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Версия в коде совпадает с тегом
+        if: github.ref_type == 'tag'
+        shell: pwsh
+        run: |
+          $match = Select-String -Path src/SafePaste/TrayApplication.cs -Pattern 'const string Version = "([^"]+)"'
+          $code = $match.Matches[0].Groups[1].Value
+          $tag = $env:GITHUB_REF_NAME.TrimStart('v') -replace '-.*$', ''
+          if ($tag -ne $code) { throw "Tag $env:GITHUB_REF_NAME does not match AppInfo.Version $code" }
+
+      - name: Сборка и проверки
+        shell: cmd
+        run: |
+          chcp 65001 >nul
+          call build.cmd check
+
+      - name: Архив
+        shell: pwsh
+        run: |
+          $version = if ($env:GITHUB_REF_TYPE -eq 'tag') { $env:GITHUB_REF_NAME } else { 'dev-' + $env:GITHUB_SHA.Substring(0, 7) }
+          $name = "SafePaste-$version"
+          $stage = Join-Path $env:RUNNER_TEMP $name
+          New-Item -ItemType Directory -Force -Path $stage, dist | Out-Null
+          Copy-Item bin/SafePaste.exe, README.md, QUICKSTART.md, CHANGELOG.md -Destination $stage
+          if (Test-Path LICENSE) { Copy-Item LICENSE -Destination $stage }
+          $zip = "dist/$name.zip"
+          Compress-Archive -Path "$stage/*" -DestinationPath $zip
+          $hash = (Get-FileHash $zip -Algorithm SHA256).Hash.ToLowerInvariant()
+          Set-Content -Path "$zip.sha256" -Value "$hash  $name.zip" -Encoding ascii
+          Get-ChildItem dist | Format-Table Name, Length
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: safepaste-package
+          path: dist/
+          retention-days: 14
+
+      - name: Черновик выпуска
+        if: github.ref_type == 'tag'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $opts = @($tag) + (Get-ChildItem dist).FullName + @('--draft', '--verify-tag', '--generate-notes', '--title', "SafePaste $tag")
+          if ($tag -like '*-*') { $opts += '--prerelease' }
+          gh release create @opts

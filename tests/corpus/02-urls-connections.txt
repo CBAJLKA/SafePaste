@@ -1,0 +1,55 @@
+## Логины и пароли в адресах и строках подключения.
+
+# URL credentials
+https://testuser:⟦FakePass123!⟧@example.test
+http://admin:⟦Admin123!⟧@⟪192.168.1.1⟫:8080
+ftp://backup:⟦BackupFake#2026⟧@ftp.example.test
+sftp://deploy:⟦DeployFake!123⟧@sftp.example.test
+smb://CORP;jdoe:⟦Smb-Share!2026⟧@⟪fs01.corp.example.test⟫/share
+ldap://cn=admin:⟦LdapUrl!Pass1⟧@⟪10.0.0.10⟫:389
+https://oauth2:⟦glpat-FakeGitLabToken12345⟧@gitlab.example.test/group/app.git
+https://:⟦EmptyUserPass!9⟧@api.example.test/v1
+https://user:⟦P@ss@word!1⟧@host.example.test/path
+https://ci-bot:⟦ghp_R4nd0mFakeTokenForTests0123456789abcd⟧@github.com/org/repo.git
+git clone https://jdoe:⟦Git#Clone2026⟧@git.example.test/repo.git
+
+# Database connection strings
+Server=sql01.example.test;Database=testdb;User Id=sa;Password=⟦FakeSqlPass!123⟧;
+Host=⟪10.10.10.10⟫;Port=5432;Database=testdb;⟨Username⟩=pguser;Password=⟦FakePgPass#123⟧;
+mysql://root:⟦FakeMysql!123⟧@db.example.test:3306/testdb
+postgresql://pguser:⟦FakePg!456⟧@db.example.test:5432/test
+mongodb://mongouser:⟦FakeMongo#789⟧@mongo.example.test:27017/admin
+mongodb+srv://app:⟦SrvMongo!2026⟧@cluster0.abcde.mongodb.net/prod?retryWrites=true
+redis://:⟦FakeRedis-Pass123⟧@redis.example.test:6379/0
+rediss://default:⟦Rediss!Tls2026⟧@cache.example.test:6380
+amqp://rabbituser:⟦FakeRabbit!123⟧@rabbit.example.test:5672/test
+amqps://guest:⟦AmqpTls#2026⟧@mq.example.test/vhost
+jdbc:postgresql://db.example.test:5432/app?user=app&password=⟦JdbcPg!2026⟧
+jdbc:sqlserver://sql01.example.test:1433;databaseName=App;user=appuser;password=⟦JdbcMs#2026⟧;
+jdbc:mysql://appuser:⟦JdbcMy!2026⟧@db.example.test:3306/app
+Driver={ODBC Driver 18 for SQL Server};Server=tcp:sql02.example.test,1433;Uid=appuser;Pwd=⟦OdbcPwd!2026⟧;
+DSN=Reports;UID=report_user;PWD=⟦Reports#2026⟧
+Provider=SQLOLEDB;Data Source=SQL01;Initial Catalog=Test;User ID=sa;Password=⟦FakeSql#2026⟧;
+Server=tcp:sql02.example.test,1433;User ID=appuser;Password=⟦FakeApp!123⟧;Encrypt=True;
+
+# Azure
+DefaultEndpointsProtocol=https;AccountName=fakestorage;AccountKey=⟦FakeStorageKey0123456789abcdefghijklmnopqrstuvwxyzABCD==⟧;EndpointSuffix=core.windows.net
+Endpoint=sb://fake-bus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=⟦FakeBusKey0123456789abcdefghijklmnopqrstuv=⟧
+AccountEndpoint=https://fake-cosmos.documents.azure.com:443/;AccountKey=⟦FakeCosmosKey0123456789abcdefghijklmnop==⟧;
+https://fakestorage.blob.core.windows.net/container/file.txt?sv=2022-11-02&ss=b&sp=r&sig=⟦FakeSasSignature0123456789%2Fabc%3D⟧
+
+# Kafka и прочее
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="kafka" password="⟦KafkaSasl!2026⟧";
+spring.datasource.url=jdbc:mysql://db.example.test:3306/app
+spring.datasource.username=appuser
+spring.datasource.password=⟦SpringDs#2026⟧
+
+# Proxy credentials
+http_proxy=http://proxyuser:⟦FakeProxy!123⟧@proxy.example.test:3128
+https_proxy=http://proxyuser:⟦FakeProxy!123⟧@proxy.example.test:3128
+export ALL_PROXY=socks5://sockuser:⟦Socks#Proxy1⟧@proxy.example.test:1080
+
+## Адреса без пароля: оставляем как есть.
+https://example.test/docs
+http://localhost:8080/health
+ssh://git@github.com/org/repo.git

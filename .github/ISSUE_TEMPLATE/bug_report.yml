@@ -1,0 +1,58 @@
+name: Ошибка
+description: Что-то работает не так, как описано в README
+labels: [ошибка]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Не вставляйте сюда настоящие пароли, токены, адреса, имена серверов и ФИО.**
+        Замените их вымышленными: `example.com`, `10.0.0.5`, `srv-demo01`, `Иванов Иван`.
+        Об уязвимостях пишите закрыто, как описано в SECURITY.md.
+  - type: textarea
+    id: what
+    attributes:
+      label: Что произошло
+      description: Что вы делали, что ожидали увидеть и что получилось.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Как повторить
+      placeholder: |
+        1. Скопировать текст ...
+        2. Нажать Ctrl+Alt+Shift+V ...
+        3. ...
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Версия SafePaste
+      description: Меню значка → «Как пользоваться», версия в шапке окна.
+      placeholder: "0.4"
+  - type: dropdown
+    id: windows
+    attributes:
+      label: Windows
+      options:
+        - Windows 11
+        - Windows 10
+        - Другая
+  - type: dropdown
+    id: area
+    attributes:
+      label: Где
+      options:
+        - Быстрая вставка
+        - Окно проверки
+        - Картинки
+        - Расшифровка
+        - Мост для агентов
+        - Настройки и автозапуск
+        - Другое
+  - type: textarea
+    id: extra
+    attributes:
+      label: Дополнительно
+      description: Снимок окна (только с вымышленными данными), текст ошибки, что уже пробовали.

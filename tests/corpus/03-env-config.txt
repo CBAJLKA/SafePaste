@@ -1,0 +1,180 @@
+## Переменные окружения и файлы настроек.
+
+# API keys
+api_key=⟦FAKE_API_KEY_1234567890⟧
+API_KEY=⟦FakeApiKey-ABCDEF123456⟧
+apikey: ⟦fake-apikey-0987654321⟧
+x-api-key: ⟦FakeXApiKey0987654321⟧
+Ocp-Apim-Subscription-Key: ⟦0123456789abcdef0123456789abcdef⟧
+x-functions-key: ⟦FakeFunctionsKey0123456789==⟧
+
+# Bearer tokens
+Authorization: Bearer ⟦FAKE.TOKEN.1234567890abcdef⟧
+Bearer ⟦FakeBearerToken1234567890abcdef⟧
+access_token=⟦fake_access_token_1234567890⟧
+
+# OAuth
+client_id=fake-client-id-123456
+client_secret=⟦FakeClientSecret!123456⟧
+refresh_token=⟦fake_refresh_token_abcdef123456⟧
+oauth_token=⟦fake_oauth_token_654321⟧
+
+# Generic secrets
+SECRET_KEY=⟦fake-secret-key-1234567890⟧
+APP_SECRET=⟦FakeAppSecret!2026⟧
+MASTER_PASSWORD=⟦FakeMasterPass#123⟧
+ENCRYPTION_KEY=⟦fake-encryption-key-32bytes-test!!⟧
+JWT_SECRET=⟦fake_jwt_secret_1234567890⟧
+SIGNING_KEY=⟦FakeSigningKey0123456789⟧
+APP_KEY=⟦base64:FakeLaravelAppKey0123456789abcdefghijkl=⟧
+SECRET_KEY_BASE=⟦fakerailssecretkeybase0123456789abcdef⟧
+SESSION_KEY=⟦FakeSessionKey!2026⟧
+LICENSE_KEY=⟦FAKE-LICENSE-KEY-0001⟧
+HMAC_KEY=⟦FakeHmacKey0123456789⟧
+WEBHOOK_SECRET=⟦whsec_FakeWebhookSecret0123456789abc⟧
+
+# AWS-like
+AWS_ACCESS_KEY_ID=⟦AKIAFAKEEXAMPLEKEY12⟧
+AWS_SECRET_ACCESS_KEY=⟦FakeSecretAccessKey1234567890abcdefghijkl⟧
+AWS_SESSION_TOKEN=⟦FakeSessionToken1234567890⟧
+aws_secret_access_key = ⟦FakeAwsCliSecret/0123456789abcdefghijk⟧
+
+# Azure-like
+AZURE_CLIENT_ID=⟪00000000-1111-2222-3333-444444444444⟫
+AZURE_CLIENT_SECRET=⟦FakeAzureSecret~1234567890⟧
+AZURE_TENANT_ID=⟪aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee⟫
+AZURE_STORAGE_KEY=⟦FakeAzureStorageKey0123456789==⟧
+AZURE_DEVOPS_PAT=⟦fakeazuredevopspersonalaccesstoken0123456789ab⟧
+
+# Google-like
+GOOGLE_API_KEY=⟦AIzaSyFakeGoogleApiKey0123456789abcdefg⟧
+GOOGLE_APPLICATION_CREDENTIALS=⟦C:\secrets\fake-service-account.json⟧
+
+# Environment variables
+DB_PASSWORD=⟦FakeDbPass!123⟧
+SMTP_PASSWORD=⟦FakeSmtpPass#456⟧
+LDAP_PASSWORD=⟦FakeLdapPass$789⟧
+REDIS_PASSWORD=⟦FakeRedisPass!123⟧
+RABBITMQ_PASSWORD=⟦FakeRabbit#2026⟧
+VSPHERE_PASSWORD=⟦FakeVsphere!2026⟧
+MYSQL_ROOT_PASSWORD=⟦FakeMysqlRoot!1⟧
+POSTGRES_PASSWORD=⟦FakePostgres#1⟧
+PGPASSWORD=⟦FakePgEnv!2026⟧
+MYSQL_PWD=⟦FakeMysqlPwd#2⟧
+MONGO_INITDB_ROOT_PASSWORD=⟦FakeMongoRoot!3⟧
+ELASTIC_PASSWORD=⟦FakeElasticEnv!4⟧
+KEYCLOAK_ADMIN_PASSWORD=⟦FakeKeycloak#5⟧
+SA_PASSWORD=⟦FakeMssqlSa!6⟧
+DOCKER_PASSWORD=⟦FakeDockerPass!123⟧
+VPN_PSK=⟦FakePreSharedKey!123456⟧
+TOTP_SECRET=⟦JBSWY3DPEHPK3PXP⟧
+SMTP_PASS=⟦FakeSmtpShort!7⟧
+db_pass=⟦FakeDbShort!8⟧
+
+# VMware / Veeam / Zabbix
+VSPHERE_USER=⟪administrator@vsphere.local⟫
+VSPHERE_PASSWORD=⟦FakeVsphere!2027⟧
+VCENTER_USERNAME=⟪svc_vcenter⟫
+VCENTER_PASSWORD=⟦FakeVcenter#123⟧
+VEEAM_USER=⟪CORP\svc_veeam⟫
+VEEAM_PASSWORD=⟦FakeVeeam!2026⟧
+ZABBIX_USER=Admin
+ZABBIX_PASSWORD=⟦FakeZabbix#123⟧
+
+# MinIO / S3 / Grafana / Ansible
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=⟦FakeMinio!123⟧
+S3_ACCESS_KEY=⟦FAKES3ACCESSKEY123⟧
+S3_SECRET_KEY=⟦FakeS3SecretKey/abcdef1234567890⟧
+GF_SECURITY_ADMIN_USER=admin
+GF_SECURITY_ADMIN_PASSWORD=⟦FakeGrafana!123⟧
+ansible_user=⟪svc_ansible⟫
+ansible_password=⟦FakeAnsible!123⟧
+ansible_become_password=⟦FakeBecome#456⟧
+ansible_ssh_pass=⟦FakeAnsibleSsh!9⟧
+
+# JSON
+{
+  "username": "⟪testuser⟫",
+  "password": "⟦FakeJsonPass!123⟧",
+  "api_key": "⟦fake-json-api-key-123⟧",
+  "clientSecret": "⟦FakeCamelSecret#1⟧",
+  "privateKey": "⟦FakePrivateKeyInJson0123⟧",
+  "accessToken": "⟦FakeAccessToken0123456789⟧"
+}
+
+# YAML
+username: ⟪testuser⟫
+password: ⟦FakeYamlPass!123⟧
+api_token: ⟦fake-yaml-token-123⟧
+  db:
+    password: "⟦IndentedYaml#1⟧"
+    secretKey: '⟦SingleQuoted!2⟧'
+
+# INI
+[credentials]
+username=⟪testuser⟫
+password=⟦FakeIniPass!123⟧
+
+[database]
+host = db01
+passwd = ⟦IniPasswd#2026⟧
+
+# TOML и HCL
+[server.auth]
+token = "⟦fake-toml-token-0123⟧"
+resource "azurerm_sql_server" "main" {
+  administrator_login          = "sqladmin"
+  administrator_login_password = "⟦TerraformSql!2026⟧"
+}
+
+# XML и .NET
+<username>⟪testuser⟫</username>
+<password>⟦FakeXmlPass!123⟧</password>
+<add key="DbPassword" value="⟦AppConfig#2026⟧" />
+<add key="ClearTextPassword" value="⟦NuGetFeed!2026⟧" />
+<AdministratorPassword><Value>⟦Unattend!2026⟧</Value></AdministratorPassword>
+<connectionStrings><add name="Main" connectionString="Server=db01;User ID=app;Password=⟦ConnStr#2026⟧;" /></connectionStrings>
+
+# Java properties и Spring
+db.password=⟦PropsDb!2026⟧
+mail.smtp.password=⟦PropsMail#1⟧
+systemProp.http.proxyPassword=⟦GradleProxy!2⟧
+app.jwt.secret=⟦PropsJwtSecret0123⟧
+
+# .env
+USERNAME=⟪testuser⟫
+PASSWORD=⟦FakeEnvPass!123⟧
+API_KEY=⟦fake-env-api-key-123⟧
+SECRET_TOKEN=⟦fake-env-secret-token⟧
+
+# Kubernetes-like
+KUBE_TOKEN=⟦fake-kube-token-1234567890⟧
+token: ⟦fake-k8s-token-abcdef⟧
+client-certificate-data: RkFLRUNFUlQ=
+client-key-data: ⟦RkFLRUtFWQ==⟧
+
+# LDAP
+ldap_bind_dn=CN=svc_ldap,OU=Service Accounts,DC=example,DC=test
+ldap_bind_password=⟦FakeLdapBind!123⟧
+
+# SMTP
+smtp_username=⟪alerts@example.test⟫
+smtp_password=⟦FakeSmtp!2026⟧
+
+# Certificates / PFX-ish references
+certificate_password=⟦FakeCertPass!123⟧
+pfx_password=⟦FakePfxPass#456⟧
+keystore.password=⟦KeystorePass!1⟧
+
+# Recovery / backup codes
+backup_code=⟦1234-5678-9012⟧
+recovery_code=⟦FAKE-RECOVERY-ABCD-EFGH⟧
+mfa_backup_code=⟦99887766⟧
+recovery_codes: ⟦["ab12-cd34", "ef56-gh78"]⟧
+
+# PIN / OTP style
+PIN=⟦482913⟧
+OTP=⟦123456⟧
+pin_code: ⟦7391⟧
+passcode=⟦Pass2468⟧

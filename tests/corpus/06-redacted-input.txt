@@ -1,0 +1,15 @@
+## Уже обезличенный текст: метки не вложены в новые метки, а оставшиеся пароли скрыты.
+
+⟨[USER_4]⟩:⟦P@ssw0rd!⟧
+⟨[USER_5]⟩:⟦Adm1n#Fake2026⟧
+⟨[USER_6]⟩:⟦S3rvice-Backup!123⟧
+⟨[EMAIL_3]⟩:⟦FakeAdmin!2026⟧
+⟨[EMAIL_13]⟩:⟦FakeMailPassword!123⟧
+⟨[USER_18]⟩:⟦FakeProxmox!123⟧
+
+## Отдельные метки и подписи рядом с ними тоже остаются без изменений.
+ssh ⟨[EMAIL_5]⟩
+Host=⟨[IP_15]⟩;Password=⟦FakePgPass#123⟧;
+Authorization: Bearer ⟨[TOKEN_1]⟩
+Путь: ⟨[HOST_2]⟩
+Повтор ⟨[SECRET_1]⟩ рядом с обычным текстом.

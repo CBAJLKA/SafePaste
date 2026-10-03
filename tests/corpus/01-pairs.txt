@@ -1,0 +1,107 @@
+## Корпус секретов SafePaste: пары «логин:пароль» и списки паролей.
+## Разметка: ⟦секрет⟧ скрыт даже в лёгком режиме быстрой вставки, ⟪идентификатор⟫ скрыт в обычном режиме,
+## ⟨слово⟩ остаётся в тексте. Блоки разделяются пустой строкой и проверяются по отдельности и все вместе.
+## Все значения вымышленные.
+
+# Простые пары login/password
+admin:⟦Admin123!⟧
+user:⟦User$Pass2026⟧
+root:⟦Toor-Test-2026!⟧
+backup:⟦Backup#987654⟧
+service.account:⟦Svc-2026!Pass⟧
+⟪john.doe@example.test⟫:⟦P@ssw0rd2026!⟧
+⟪jane.smith@example.test⟫:⟦Qwerty!Test2026⟧
+
+# Windows / AD
+⟪CORP\administrator⟫:⟦P@ssw0rd!⟧
+⟪CORP\j.doe⟫:⟦Adm1n#Fake2026⟧
+⟪CORP\svc_backup⟫:⟦S3rvice-Backup!123⟧
+⟪CORP\svc_sql⟫:⟦SqlSvc#998877⟧
+⟪admin@corp.example.test⟫:⟦FakeAdmin!2026⟧
+⟪administrator@vsphere.local⟫:⟦VC-Test#12345⟧
+
+# Linux
+root:⟦FakeRootPass!123⟧
+ubuntu:⟦Ubuntu-Test#2026⟧
+debian:⟦Debian$Pass123⟧
+ansible:⟦Ansible-Test!987⟧
+postgres:⟦PgFake#445566⟧
+mysql:⟦Mysql-Test!112233⟧
+
+# IPMI / iLO / iDRAC
+Administrator:⟦FakeILO!123⟧
+root:⟦FakeIDRAC#456⟧
+ADMIN:⟦FakeIPMI$789⟧
+
+# Proxmox и Elasticsearch
+root@pam:⟦FakeProxmox!123⟧
+elastic:⟦FakeElastic#2026⟧
+
+## Слева обычная учётная запись: пароль может быть и простым.
+admin:⟦admin123⟧
+root:⟦toor⟧
+sa:⟦Sql2019⟧
+pi:⟦raspberry⟧
+oracle:⟦oracle11g⟧
+guest:⟦guest2024⟧
+
+## Пара посреди строки.
+Учётка для стенда: admin:⟦Stend#2025⟧ (не менять)
+creds for the lab: labuser:⟦LabPass!42⟧
+Логин и пароль от роутера admin:⟦Router_2024!⟧, не забудь сменить.
+echo 'deploy:⟦Depl0y!Key⟧' | chpasswd
+
+## Сложный пароль с одной стороны от двоеточия.
+svc_web:⟦W3b$ervice⟧
+svc-monitor:⟦M0nitor!ng⟧
+adm_ivanov:⟦Iv@nov2025⟧
+webmaster:⟦WebMaster#2024⟧
+CORP\operator:⟦0per@tor!⟧
+
+# Email credentials
+⟪mail.user@example.test⟫
+⟪mail.user@example.test⟫:⟦FakeMailPassword!123⟧
+⟪billing@example.test⟫:⟦B1lling#Box⟧
+
+# Password-only strings
+⟦P@ssw0rd⟧
+⟦Password123!⟧
+⟦SuperSecret!⟧
+⟦Qwerty123456!⟧
+⟦1234567890⟧
+⟦Tr0ub4dor&3-Test⟧
+⟦correct-horse-battery-staple-test⟧
+
+Пароли от стенда:
+- ⟦Stand-Alpha-01⟧
+- ⟦stand_beta_02⟧
+- ⟦Gamma2025⟧
+
+## Под заголовком «пароли» столбик слов считается паролями, даже без спецсимволов.
+Passwords:
+⟦hunter2⟧
+⟦letmein⟧
+⟦trustno1⟧
+
+// Recovery codes
+⟦a1b2-c3d4⟧
+⟦e5f6-g7h8⟧
+⟦i9j0-k1l2⟧
+
+## Без заголовка строка из одного слова скрывается, только если это явно пароль.
+⟦Winter2025!⟧
+⟦Zxcv#1234Asdf⟧
+⟦Qwerty!Test2026⟧
+⟨hello⟩
+⟨README⟩
+⟨main.py⟩
+
+# Username-only
+⟨administrator⟩
+⟨root⟩
+⟨admin⟩
+testuser
+svc_backup
+⟪CORP\jdoe⟫
+j.doe
+⟪john.doe@example.test⟫
