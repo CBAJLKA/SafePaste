@@ -141,9 +141,11 @@ namespace SafePaste.Tests
             catch (IOException) { denied = true; }
             Check("файл больше 2 МБ отклоняется", denied, "");
             Check("список файлов обезличен", files.List(folder, 1, "*").Contains("demo.txt"), "");
+            // Файл не в UTF-8 читается в кодировке ANSI системы; проверка имеет смысл, где это cp1251.
+            bool ansi1251 = Encoding.Default.CodePage == 1251;
             string cp = Path.Combine(folder, "cp1251.txt");
             File.WriteAllBytes(cp, Encoding.GetEncoding(1251).GetBytes("Привет мир"));
-            Check("файл cp1251 читается", files.Read(cp, 1, 10).Contains("Привет мир"), "");
+            if (ansi1251) Check("файл cp1251 читается", files.Read(cp, 1, 10).Contains("Привет мир"), "");
 
             TestApproval approval = new TestApproval();
             FileEditor editor = new FileEditor(files, store, anonymizer, approval);
@@ -174,13 +176,16 @@ namespace SafePaste.Tests
             byte[] afterFormat = File.ReadAllBytes(formatted);
             Check("правка сохраняет BOM и CRLF", afterFormat[0] == 0xEF && afterFormat[1] == 0xBB
                 && afterFormat[2] == 0xBF && Encoding.UTF8.GetString(afterFormat).Contains("localhost\r\nnext=ok\r\n"), "");
-            editor.Write(cp, "Привет мир!");
-            Check("запись сохраняет cp1251", Encoding.GetEncoding(1251).GetString(File.ReadAllBytes(cp)) == "Привет мир!", "");
-            denied = false;
-            try { editor.Write(cp, "emoji \u263a"); }
-            catch (EncoderFallbackException) { denied = true; }
-            Check("непредставимый символ не портит cp1251", denied
-                && Encoding.GetEncoding(1251).GetString(File.ReadAllBytes(cp)) == "Привет мир!", "");
+            if (ansi1251)
+            {
+                editor.Write(cp, "Привет мир!");
+                Check("запись сохраняет cp1251", Encoding.GetEncoding(1251).GetString(File.ReadAllBytes(cp)) == "Привет мир!", "");
+                denied = false;
+                try { editor.Write(cp, "emoji \u263a"); }
+                catch (EncoderFallbackException) { denied = true; }
+                Check("непредставимый символ не портит cp1251", denied
+                    && Encoding.GetEncoding(1251).GetString(File.ReadAllBytes(cp)) == "Привет мир!", "");
+            }
             string secretFile = Path.Combine(folder, "secret.txt");
             File.WriteAllText(secretFile, "password=DoNotPersist123!", new UTF8Encoding(false));
             editor.Edit(secretFile, "password=" + secret, "password=" + secret);
